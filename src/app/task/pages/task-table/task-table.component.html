@@ -10,11 +10,11 @@
     <nz-table [nzPageSize]="8"  #taskTable [nzData]="listTasks" nzTableLayout="fixed">
       <thead>
       <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>State</th>
-        <th nzRight>Action</th>
+        <th>id</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th nzRight></th>
       </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
         <td>{{ item.nameTask }}</td>
         <td>{{ item.dateTask | date }}</td>
         <td>
-          <nz-badge [nzStatus]="item.state == 'completed' ? 'success' :  'error'">{{ item.state }}</nz-badge>
+          <nz-badge [nzStatus]="item.state == getStateComplete() ? 'success' :  'error'">{{ item.state }}</nz-badge>
         </td>
         <td>
           <app-detail-task [idTask]="item.id"/>

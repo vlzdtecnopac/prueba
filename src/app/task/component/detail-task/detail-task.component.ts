@@ -1,9 +1,9 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NgZorroAntdModule} from "../../../ng-zorro-antd.module";
-import {NzModalService} from "ng-zorro-antd/modal";
 import {TaskService} from "../../../service/task.service";
 import {TaskInterface} from "../../../interface/associatedTask.interface";
+import {TaskStateEnum} from "../../../enum/task-state.enum";
 
 @Component({
   selector: 'app-detail-task',
@@ -21,10 +21,13 @@ export class DetailTaskComponents{
   isVisible = false;
   isConfirmLoading = false;
 
-  constructor(private modalService: NzModalService,
-              private taskService: TaskService) {}
+  constructor(private taskService: TaskService) {}
 
-  showModal1(): void {
+  getStateComplete(){
+    return TaskStateEnum.completed
+  }
+
+  showModal(): void {
     this.taskService.getOneTask(this.idTask)
       .subscribe(item => {
         this.taskDetail = item;

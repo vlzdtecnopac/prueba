@@ -4,6 +4,7 @@ import {AppState} from "../../../store/app.reducers";
 import {TaskInterface} from "../../../interface/associatedTask.interface";
 import {cargarTask} from "../../../store/actions";
 import {Router} from "@angular/router";
+import {TaskStateEnum} from "../../../enum/task-state.enum";
 
 export interface TreeNodeInterface {
   key: string;
@@ -35,6 +36,10 @@ export class TaskTableComponent implements OnInit {
       this.listTasks = tasks;
     });
 
+  }
+
+  getStateComplete(){
+    return TaskStateEnum.completed
   }
 
 
