@@ -57,6 +57,10 @@ export class AssociatedPeopleComponent implements OnInit{
     this.skills.removeAt(index);
   }
 
+  removeItem(nameUser: string) {
+    this.listTaskAssociated = this.listTaskAssociated.filter(item => item.nameUser != nameUser)
+  }
+
   updateSkill(index: number, newValue: string) {
     this.skills.at(index).setValue(newValue); // O usa patchValue
   }

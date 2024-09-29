@@ -13,6 +13,9 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzBadgeModule } from 'ng-zorro-antd/badge';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
 @NgModule({
   declarations: [],
   exports:[
@@ -28,7 +31,9 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
     NzLayoutModule,
     NzDividerModule,
     NzTableModule,
-    NzSwitchModule
+    NzSwitchModule,
+    NzBadgeModule,
+    NzIconModule
   ]
 })
 export class NgZorroAntdModule { }

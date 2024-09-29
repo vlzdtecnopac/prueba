@@ -71,12 +71,16 @@
         </div>
       </div>
       <ul formArrayName="skills" class="list-group">
-        <li *ngFor="let item of listTaskAssociated" class="list-item">
+        <li *ngFor="let item of listTaskAssociated, let i = index" class="list-item">
           <div class="grid grid-noGutter">
-            <div class="col-10">
+            <div class="col-8">
               <p><strong>Nombre completo: </strong> <span nz-typography nzType="secondary">{{ item.nameUser }}</span></p>
             </div>
-            <div class="col-2"><p><strong>Edad: </strong> <span nz-typography nzType="secondary">{{ item.nameAge }}</span></p></div> <!-- second row: three columns (6+3+3) -->
+            <div class="col-3"><p><strong>Edad: </strong> <span nz-typography nzType="secondary">{{ item.nameAge }}</span></p></div> <!-- second row: three columns (6+3+3) -->
+            <div class="col-1">
+              <button nz-button nzType="default" nzShape="circle" (click)="removeItem(item.nameUser)" >  <span nz-icon nzType="delete" nzTheme="outline" ></span> </button>
+
+            </div>
             <div class="col-12">
               <h5 style="margin: 0px" nz-typography>Habilidades:   {{ item.skills.join(", ") }} </h5>
             </div>
