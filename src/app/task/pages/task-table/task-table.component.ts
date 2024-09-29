@@ -26,16 +26,21 @@ export class TaskTableComponent implements OnInit {
 
   listTasks: TaskInterface[] = [];
   selectedValue = null;
+  isSpinning: boolean = true;
 
   constructor(private router: Router,
               private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
+
     this.store.dispatch(cargarTask())
 
     this.store.select('tasks').subscribe(({tasks, loading, error}) => {
-      this.listTasks = tasks;
+      if(!loading){
+        this.listTasks = tasks;
+        this.isSpinning = loading
+      }
     });
 
   }
@@ -45,14 +50,17 @@ export class TaskTableComponent implements OnInit {
   }
 
   filterTasks(selectedValue: string) {
+    this.isSpinning = true;
     this.store.dispatch(cargarTask())
     if (selectedValue) {
       this.store.select('tasks').subscribe(({tasks, loading, error}) => {
         this.listTasks = tasks.filter(task => task.state === selectedValue);
+        this.isSpinning = loading;
       });
     } else {
       this.store.select('tasks').subscribe(({tasks, loading, error}) => {
         this.listTasks = tasks;
+        this.isSpinning = loading;
       });
     }
   }
