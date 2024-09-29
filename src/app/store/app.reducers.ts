@@ -3,10 +3,12 @@ import * as reducers from './reducers';
 
 
 export interface AppState {
-  task: reducers.TaskState,
+  tasks: reducers.TaskState,
+  taskUsers: reducers.TaskStateAssociated,
 }
 
 
 export const appReducers: ActionReducerMap<AppState> = {
-  task: reducers.taskReducer,
+  tasks: reducers.taskReducer,
+  taskUsers: reducers.taskAssociatedReducer,
 }

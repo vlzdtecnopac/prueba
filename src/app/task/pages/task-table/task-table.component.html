@@ -1,0 +1,37 @@
+<div class="grid">
+  <div class="col-1"></div>
+  <div class="col-10">
+    <nz-table #expandTable [nzData]="listOfMapData" nzTableLayout="fixed">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th nzRight>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngFor="let data of expandTable.data">
+        <ng-container *ngFor="let item of mapOfExpandedData[data.key]">
+          <tr *ngIf="(item.parent && item.parent.expand) || !item.parent">
+            <td
+              [nzIndentSize]="item.level! * 20"
+              [nzShowExpand]="!!item.children"
+              [(nzExpand)]="item.expand"
+              (nzExpandChange)="collapse(mapOfExpandedData[data.key], item, $event)"
+            >
+              {{ item.name }}
+            </td>
+            <td>{{ item.age }}</td>
+            <td>{{ item.address }}</td>
+            <td nzRight >
+              <nz-switch *ngIf="!item.parent" (click)="clickSwitch(item.name)" ></nz-switch>
+            </td>
+          </tr>
+        </ng-container>
+      </ng-container>
+      </tbody>
+    </nz-table>
+  </div>
+  <div class="col-1"></div>
+</div>

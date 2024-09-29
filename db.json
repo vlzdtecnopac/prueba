@@ -80,14 +80,14 @@
       "state": "completed"
     },
     {
-      "nameTask": "Tarea 4",
-      "dateTask": "2024-10-01T04:20:55.937Z",
+      "nameTask": "Tarea 2",
+      "dateTask": "2024-09-06T14:45:34.290Z",
       "associatedTasks": [
         {
-          "nameUser": "prueba",
-          "nameAge": 34,
+          "nameUser": "David Fernando Valenzuela",
+          "nameAge": 22,
           "skills": [
-            "hoga"
+            "Node"
           ]
         }
       ],
@@ -95,14 +95,14 @@
       "id": 4
     },
     {
-      "nameTask": "David Prueba",
-      "dateTask": "2024-10-19T04:28:09.607Z",
+      "nameTask": "Tarea 2",
+      "dateTask": "2024-09-06T14:45:34.290Z",
       "associatedTasks": [
         {
-          "nameUser": "pRUEBA dAVID",
-          "nameAge": 45,
+          "nameUser": "David Fernando Valenzuela",
+          "nameAge": 22,
           "skills": [
-            "HOLA"
+            "Node"
           ]
         }
       ],

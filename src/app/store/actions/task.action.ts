@@ -1,7 +1,11 @@
-import { createAction, props } from '@ngrx/store';
-import {AssociatedTaskInterface} from "../../interface/associatedTask.interface";
+import {createAction, props} from "@ngrx/store";
+import {TaskInterface} from "../../interface/associatedTask.interface";
 
-export const create = createAction(
-  '[TODO] Add Associated Task',
-  props<{ payload: AssociatedTaskInterface[] }>()
+
+export const cargarTask = createAction('[Taks] Cargar Task');
+
+export const cargarTasksSuccess = createAction(
+  '[Task] Cargar Task Success',
+  props<{ tasks: TaskInterface[] }>()
 );
+

@@ -34,7 +34,7 @@ export class FormCreateTaskComponent {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      this.usersTask$ = this.store.pipe(select(state => state.task.usersTask))
+      this.usersTask$ = this.store.pipe(select(state => state.taskUsers.usersTask))
       this.usersTask$.subscribe((usersTask)=>{
         if(usersTask.length > 0){
           this.taskService.createTask({

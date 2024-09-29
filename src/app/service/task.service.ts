@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {TaskInterface} from "../interface/associatedTask.interface";
 
 @Injectable({
@@ -15,5 +15,11 @@ export class TaskService {
 
   createTask(post: TaskInterface): Observable<TaskInterface> {
     return this.http.post<TaskInterface>(this.apiUrl, post);
+  }
+
+  getTask() {
+    return this.http.get<TaskInterface[]>(this.apiUrl).pipe(
+      map( resp => resp)
+    )
   }
 }
