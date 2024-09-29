@@ -45,6 +45,37 @@
         }
       ],
       "state": "completed"
+    },
+    {
+      "nameTask": "Tarea 3",
+      "dateTask": "2024-11-30T03:58:46.909Z",
+      "associatedTasks": [
+        {
+          "nameUser": "Edgar Duarte Calarca",
+          "nameAge": 50,
+          "skills": [
+            "Word",
+            "Excel"
+          ]
+        },
+        {
+          "nameUser": "Sebastian Palmira",
+          "nameAge": 18,
+          "skills": [
+            "Wordpress",
+            "Shopify",
+            "Drupal"
+          ]
+        },
+        {
+          "nameUser": "Paola Garcia Peña",
+          "nameAge": 32,
+          "skills": [
+            "PHP",
+            "Javascript"
+          ]
+        }
+      ]
     }
   ]
 }
