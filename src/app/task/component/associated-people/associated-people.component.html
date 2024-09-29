@@ -1,0 +1,89 @@
+<form nz-form nzLayout="vertical" [formGroup]="validateForm" (ngSubmit)="submitFormAssociated()">
+  <div class="grid">
+    <div class="col-12">
+
+      <nz-card style="width: 100%;">
+        <nz-form-item>
+          <nz-form-label nzFor="nameUser" nzRequired>Nombre Completo</nz-form-label>
+          <nz-form-control nzDisableAutoTips [nzErrorTip]="nameErrorTpl">
+            <input nz-input formControlName="nameUser" placeholder="Ingresa el nombre completo"/>
+            <ng-template #nameErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">Este campo nombre completo es requerido</ng-container>
+              <ng-container *ngIf="control.hasError('notUnique')">Este nombre ya se encuentra ocupado.</ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzFor="nameAge" nzRequired>Edad</nz-form-label>
+          <nz-form-control nzDisableAutoTips nzHasFeedback [nzErrorTip]="ageErrorTpl">
+            <input nz-input type="number" formControlName="nameAge" placeholder="Ingresa la edad"/>
+            <ng-template #ageErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">Este campo edad es requerido</ng-container>
+              <ng-container *ngIf="control.hasError('min')">Tu edad debe ser minimo de 18 años</ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item *ngFor="let control of skills.controls; let i = index">
+          <nz-form-label *ngIf="i === 0" nzFor="skills" nzRequired>Habilidades</nz-form-label>
+          <nz-form-control>
+            <div class="grid">
+              <div class="col-9">
+                <input
+                  nz-input
+                  placeholder="Ingresa una habilidad"
+                  [formControlName]="i"
+                  (input)="updateSkill(i, getValue($event))"
+                />
+              </div> <!-- first row: one column -->
+              <div class="col-2">
+                      <span
+                        nz-icon
+                        nzType="minus-circle-o"
+                        class="dynamic-delete-button"
+                        (click)="removeSkill(i)"
+                      ></span>
+              </div>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        <ng-container *ngIf="skills.invalid">
+          <nz-alert *ngIf="skills.hasError('atLeastOneSkill')" nzType="error"
+                    nzMessage="Debes ingresar al menos una habilidad." nzShowIcon></nz-alert>
+        </ng-container>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button nzType="dashed" nzBlock (click)="addSkill()">
+              <span nz-icon nzType="plus"></span>
+              Adjuntar
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </nz-card>
+      <div class="grid">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+          <nz-form-item>
+            <nz-form-control>
+              <button nz-button nzType="primary" style="float: right">Agregar Persona</button>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+      <ul formArrayName="skills" class="list-group">
+        <li *ngFor="let item of listTaskAssociated" class="list-item">
+          <div class="grid grid-noGutter">
+            <div class="col-10">
+              <p><strong>Nombre completo: </strong> <span nz-typography nzType="secondary">{{ item.nameUser }}</span></p>
+            </div>
+            <div class="col-2"><p><strong>Edad: </strong> <span nz-typography nzType="secondary">{{ item.nameAge }}</span></p></div> <!-- second row: three columns (6+3+3) -->
+            <div class="col-12">
+              <h5 style="margin: 0px" nz-typography>Habilidades:   {{ item.skills.join(", ") }} </h5>
+            </div>
+          </div>
+          <nz-divider></nz-divider>
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
