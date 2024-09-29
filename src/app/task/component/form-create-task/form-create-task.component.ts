@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {AssociatedPeopleComponent} from "../associated-people/associated-people.component";
+import {AssociatedPeopleComponent} from "../associated-people-task/associated-people.component";
 import {
   FormControl,
   FormGroup,

@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {NgZorroAntdModule} from "./ng-zorro-antd.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskCreateComponent } from './task/pages/task-create/task-create.component';
-import {AssociatedPeopleComponent} from "./task/component/associated-people/associated-people.component";
+import {AssociatedPeopleComponent} from "./task/component/associated-people-task/associated-people.component";
 import {StoreModule} from "@ngrx/store";
 import {appReducers} from "./store/app.reducers";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -21,6 +21,7 @@ import {TaskTableComponent} from "./task/pages/task-table/task-table.component";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {EffectsModule} from "@ngrx/effects";
 import {EffectsArray} from "./store/effects";
+import {DetailTaskComponents} from "./task/component/detail-task/detail-task.component";
 
 registerLocaleData(es);
 
@@ -28,7 +29,7 @@ registerLocaleData(es);
   declarations: [
     AppComponent,
     TaskCreateComponent,
-    TaskTableComponent
+    TaskTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,12 +41,13 @@ registerLocaleData(es);
     ReactiveFormsModule,
     AssociatedPeopleComponent,
     StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot( EffectsArray ),
+    EffectsModule.forRoot(EffectsArray),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
     FormCreateTaskComponent,
     NzIconModule,
+    DetailTaskComponents,
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }

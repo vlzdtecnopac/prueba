@@ -22,4 +22,8 @@ export class TaskService {
       map( resp => resp)
     )
   }
+
+  getOneTask(_id: number | undefined): Observable<TaskInterface> {
+    return this.http.get<TaskInterface>(`${this.apiUrl}/${_id}`)
+  }
 }

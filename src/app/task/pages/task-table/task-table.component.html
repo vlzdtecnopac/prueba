@@ -25,8 +25,8 @@
         <td>
           <nz-badge [nzStatus]="item.state == 'completed' ? 'success' :  'error'">{{ item.state }}</nz-badge>
         </td>
-        <td nzRight>
-          <a>Detalles</a>
+        <td>
+          <app-detail-task [idTask]="item.id"/>
         </td>
       </tr>
       </tbody>
