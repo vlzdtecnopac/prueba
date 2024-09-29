@@ -1,6 +1,12 @@
 <div class="grid">
   <div class="col-1"></div>
   <div class="col-10">
+    <div class="grid padding-10">
+      <div class="col-10"></div>
+      <div class="col-2 grid-right">
+        <button nz-button (click)="navigateToCreateTask()" nzType="primary">Crear Tarea</button>
+      </div>
+    </div>
     <nz-table [nzPageSize]="8"  #taskTable [nzData]="listTasks" nzTableLayout="fixed">
       <thead>
       <tr>

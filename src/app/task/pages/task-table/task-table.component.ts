@@ -3,6 +3,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.reducers";
 import {TaskInterface} from "../../../interface/associatedTask.interface";
 import {cargarTask} from "../../../store/actions";
+import {Router} from "@angular/router";
 
 export interface TreeNodeInterface {
   key: string;
@@ -24,7 +25,8 @@ export class TaskTableComponent implements OnInit {
 
   listTasks: TaskInterface[] = [];
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private router: Router,
+              private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(cargarTask())
@@ -36,8 +38,8 @@ export class TaskTableComponent implements OnInit {
   }
 
 
-  clickSwitch(_id: string): void {
-    console.log(_id);
+  navigateToCreateTask() {
+    this.router.navigate(['/create-task']);
   }
 
 }
