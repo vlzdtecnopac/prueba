@@ -17,14 +17,14 @@
         </div>
       </div>
     </div>
-    <nz-table [nzPageSize]="8"  #taskTable [nzData]="listTasks" nzTableLayout="fixed">
+    <nz-table [nzPageSize]="8"  #taskTable [nzData]="listTasks" nzTableLayout="fixed" [nzScroll]="{ x: '1000px' }">
       <thead>
       <tr>
-        <th>id</th>
+        <th style="width: 80px;">id</th>
         <th>Nombre</th>
         <th>Fecha</th>
         <th>Estado</th>
-        <th nzRight></th>
+        <th style="width: 160px;"></th>
       </tr>
       </thead>
       <tbody>
