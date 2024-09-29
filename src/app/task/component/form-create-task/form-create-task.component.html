@@ -1,7 +1,7 @@
 <div class="grid">
-  <div class="col-4"></div>
-  <div class="col-4">
-    <form nz-form nzLayout="vertical" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+  <div class="col-4_lg-4_md-3_sm-1_xs-12 "></div>
+  <div class="col-4_lg-4_md-7_sm-10_xs-12">
+    <form class="margin-10" nz-form nzLayout="vertical" [formGroup]="validateForm" (ngSubmit)="submitForm()">
       <nz-form-item>
         <nz-form-label nzFor="nameTask" nzRequired>Nombre de la tarea</nz-form-label>
         <nz-form-control nzDisableAutoTips nzErrorTip="Requiere del campo de la tarea">
@@ -24,5 +24,5 @@
       </nz-form-item>
     </form>
   </div>
-  <div class="col-4"></div>
+  <div class="col-4_lg-4_md-3_sm-1_xs-12"></div>
 </div>

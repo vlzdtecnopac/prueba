@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NgZorroAntdModule} from "../../../ng-zorro-antd.module";
 import {TaskService} from "../../../service/task.service";
@@ -43,7 +43,7 @@ export class DetailTaskComponents{
   handleOk(_id: number | undefined): void {
     this.isConfirmLoading = true;
     this.taskService.getUpdateTask(_id)
-      .subscribe(result => {
+      .subscribe(() => {
       this.isVisible = false;
       this.isConfirmLoading = false;
       this.store.dispatch(cargarTask())

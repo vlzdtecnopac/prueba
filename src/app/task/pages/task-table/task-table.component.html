@@ -2,16 +2,16 @@
   <div class="col-1"></div>
   <div class="col-10">
     <div class="grid padding-10">
-      <div class="col-8"></div>
-      <div class="col-4 grid-right">
+      <div class="col-8_sm-2_xs-12"></div>
+      <div class="col-4_sm-10_xs-12">
         <div class="grid">
-          <div class="col-7">
+          <div class="col-8_lg-8_md-8_sm-8_xs-9">
             <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Selecciona el estado" (ngModelChange)="filterTasks($event)" [(ngModel)]="selectedValue">
               <nz-option nzLabel="Completados" nzValue="completed"></nz-option>
               <nz-option nzLabel="Pendientes" nzValue="pending"></nz-option>
             </nz-select>
           </div>
-          <div class="col-5">
+          <div class="col-4_lg-4_md-4_sm-4_xs-3">
             <button nz-button (click)="navigateToCreateTask()" nzType="primary">Crear Tarea</button>
           </div>
         </div>
