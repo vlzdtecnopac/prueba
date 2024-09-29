@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {AssociatedPeopleComponent} from "../associated-people-task/associated-people.component";
 import {
   FormControl,
@@ -16,6 +16,7 @@ import {TaskStateEnum} from "../../../enum/task-state.enum";
 import {AppState} from "../../../store/app.reducers";
 import {TaskService} from "../../../service/task.service";
 import {NgZorroAntdModule} from "../../../ng-zorro-antd.module";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-create-task',
@@ -35,30 +36,33 @@ export class FormCreateTaskComponent {
   submitForm(): void {
     if (this.validateForm.valid) {
       this.usersTask$ = this.store.pipe(select(state => state.taskUsers.usersTask))
-      this.usersTask$.subscribe((usersTask)=>{
-        if(usersTask.length > 0){
+      this.usersTask$.subscribe((usersTask) => {
+        if (usersTask.length > 0) {
           this.taskService.createTask({
             nameTask: this.validateForm.get("nameTask")?.value!,
             dateTask: this.validateForm.get("dateTask")?.value!,
             associatedTasks: usersTask,
             state: TaskStateEnum.pending
           }).subscribe(console.log)
+          this.router.navigate(['']);
         }
       })
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
           control.markAsDirty();
-          control.updateValueAndValidity({ onlySelf: true });
+          control.updateValueAndValidity({onlySelf: true});
         }
       });
     }
   }
 
 
-  constructor(private fb: NonNullableFormBuilder,
+  constructor(private router: Router,
+              private fb: NonNullableFormBuilder,
               private store: Store<AppState>,
-              private taskService: TaskService) {
+              private taskService: TaskService,
+  ) {
     this.validateForm = this.fb.group({
       nameTask: ['', [Validators.required, Validators.maxLength(12)]],
       dateTask: ['', [Validators.required]]

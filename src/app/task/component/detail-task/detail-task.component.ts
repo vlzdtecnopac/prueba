@@ -36,12 +36,14 @@ export class DetailTaskComponents{
 
   }
 
-  handleOk(): void {
+  handleOk(_id: number | undefined): void {
     this.isConfirmLoading = true;
-    setTimeout(() => {
+    this.taskService.getUpdateTask(_id)
+      .subscribe(result => {
       this.isVisible = false;
       this.isConfirmLoading = false;
-    }, 3000);
+    })
+
   }
 
   handleCancel(): void {

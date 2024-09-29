@@ -79,10 +79,9 @@
             <div class="col-3"><p><strong>Edad: </strong> <span nz-typography nzType="secondary">{{ item.nameAge }}</span></p></div> <!-- second row: three columns (6+3+3) -->
             <div class="col-1">
               <button nz-button nzType="default" nzShape="circle" (click)="removeItem(item.nameUser)" >  <span nz-icon nzType="delete" nzTheme="outline" ></span> </button>
-
             </div>
             <div class="col-12">
-              <h5 style="margin: 0px" nz-typography>Habilidades:   {{ item.skills.join(", ") }} </h5>
+              <h5 style="margin: 0px" nz-typography>Habilidades:  <span style="font-size: 14px">{{ item.skills.join(", ") }}</span> </h5>
             </div>
           </div>
           <nz-divider></nz-divider>

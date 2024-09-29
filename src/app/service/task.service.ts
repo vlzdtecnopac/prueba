@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {TaskInterface} from "../interface/associatedTask.interface";
+import {TaskStateEnum} from "../enum/task-state.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class TaskService {
 
   getOneTask(_id: number | undefined): Observable<TaskInterface> {
     return this.http.get<TaskInterface>(`${this.apiUrl}/${_id}`)
+  }
+
+  getUpdateTask(_id: number | undefined): Observable<TaskInterface> {
+    return this.http.patch<TaskInterface>(`${this.apiUrl}/${_id}`, {"state": TaskStateEnum.completed})
   }
 }

@@ -108,6 +108,42 @@
       ],
       "state": "pending",
       "id": 5
+    },
+    {
+      "nameTask": "Tarea 6",
+      "dateTask": "2024-10-24T17:31:17.771Z",
+      "associatedTasks": [
+        {
+          "nameUser": "Juan Pablo Torre",
+          "nameAge": 27,
+          "skills": [
+            ".Net",
+            "Java",
+            "Go",
+            "Aws",
+            "Azure"
+          ]
+        }
+      ],
+      "state": "pending",
+      "id": 6
+    },
+    {
+      "nameTask": "Tarea 7",
+      "dateTask": "2024-11-05T17:36:24.889Z",
+      "associatedTasks": [
+        {
+          "nameUser": "Daniela camila Caicedo",
+          "nameAge": 38,
+          "skills": [
+            "Adobe Ilustreor",
+            "Adobe After Effects",
+            "Adobe Photoshop"
+          ]
+        }
+      ],
+      "state": "completed",
+      "id": 7
     }
   ]
 }

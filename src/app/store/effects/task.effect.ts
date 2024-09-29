@@ -18,7 +18,7 @@ export class TaskEffects {
       mergeMap(
         () => this.taskService.getTask()
           .pipe(
-            map(tasks =>  taskActions.cargarTasksSuccess({tasks})),
+            map(tasks => taskActions.cargarTasksSuccess({tasks: tasks.reverse()})),
           )
       ),
     )
