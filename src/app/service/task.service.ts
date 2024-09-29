@@ -8,7 +8,7 @@ import {TaskInterface} from "../interface/associatedTask.interface";
 })
 export class TaskService {
 
-  private apiUrl = 'https://run.mocky.io/v3/8945ab4a-627a-4507-8727-7baa1bb2fc6d';
+  private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
 
   constructor(private http: HttpClient) {}
 
