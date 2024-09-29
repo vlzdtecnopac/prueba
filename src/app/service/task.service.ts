@@ -8,7 +8,8 @@ import {TaskInterface} from "../interface/associatedTask.interface";
 })
 export class TaskService {
 
-  private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
+  //private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
+  private apiUrl = 'http://localhost:3000/tasks';
 
   constructor(private http: HttpClient) {}
 

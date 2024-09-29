@@ -47,6 +47,7 @@
       "state": "completed"
     },
     {
+      "id": 3,
       "nameTask": "Tarea 3",
       "dateTask": "2024-11-30T03:58:46.909Z",
       "associatedTasks": [
@@ -77,6 +78,36 @@
         }
       ],
       "state": "completed"
+    },
+    {
+      "nameTask": "Tarea 4",
+      "dateTask": "2024-10-01T04:20:55.937Z",
+      "associatedTasks": [
+        {
+          "nameUser": "prueba",
+          "nameAge": 34,
+          "skills": [
+            "hoga"
+          ]
+        }
+      ],
+      "state": "pending",
+      "id": 4
+    },
+    {
+      "nameTask": "David Prueba",
+      "dateTask": "2024-10-19T04:28:09.607Z",
+      "associatedTasks": [
+        {
+          "nameUser": "pRUEBA dAVID",
+          "nameAge": 45,
+          "skills": [
+            "HOLA"
+          ]
+        }
+      ],
+      "state": "pending",
+      "id": 5
     }
   ]
 }

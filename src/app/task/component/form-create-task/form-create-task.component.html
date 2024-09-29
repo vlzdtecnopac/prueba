@@ -1,0 +1,28 @@
+<div class="grid">
+  <div class="col-4"></div>
+  <div class="col-4">
+    <form nz-form nzLayout="vertical" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-label nzFor="nameTask" nzRequired>Nombre de la tarea</nz-form-label>
+        <nz-form-control nzDisableAutoTips nzErrorTip="Requiere del campo de la tarea">
+          <input nz-input formControlName="nameTask" placeholder="Ingresa el nombre de la nueva tarea"/>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzFor="dateTask" nzRequired>Fecha Limite</nz-form-label>
+        <nz-form-control  nzDisableAutoTips nzErrorTip="Requiere el campo fecha">
+          <nz-date-picker style="width: 100%" formControlName="dateTask"></nz-date-picker>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <app-associated-people/>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button nzType="dashed" style="float: right;">Guardar</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+  <div class="col-4"></div>
+</div>

@@ -16,6 +16,7 @@ import {AssociatedPeopleComponent} from "./task/component/associated-people/asso
 import {StoreModule} from "@ngrx/store";
 import {appReducers} from "./store/app.reducers";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {FormCreateTaskComponent} from "./task/component/form-create-task/form-create-task.component";
 
 registerLocaleData(es);
 
@@ -33,10 +34,11 @@ registerLocaleData(es);
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AssociatedPeopleComponent,
-    StoreModule.forRoot( appReducers ),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
     }),
+    FormCreateTaskComponent,
   ],
   providers: [
     { provide: NZ_I18N, useValue: es_ES }
