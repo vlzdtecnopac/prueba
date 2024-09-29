@@ -3,13 +3,14 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {TaskInterface} from "../interface/associatedTask.interface";
 import {TaskStateEnum} from "../enum/task-state.enum";
+import { environment } from "./../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
+  private apiUrl = environment.apiUrl;
   //private apiUrl = 'http://localhost:3000/tasks';
 
   constructor(private http: HttpClient) {}
