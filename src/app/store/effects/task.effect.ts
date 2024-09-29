@@ -1,9 +1,8 @@
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as taskActions from '../actions/task.action';
 import {TaskService} from "../../service/task.service";
-import {map, mergeMap} from "rxjs";
+import {catchError, map, mergeMap, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {TaskStateEnum} from "../../enum/task-state.enum";
 
 @Injectable()
 export class TaskEffects {
@@ -18,9 +17,14 @@ export class TaskEffects {
       mergeMap(
         () => this.taskService.getTask()
           .pipe(
-            map(tasks => taskActions.cargarTasksSuccess({tasks: tasks.reverse()})),
+              map(tasks => taskActions.cargarTasksSuccess({tasks: tasks.reverse()})),
+              catchError( err => of(taskActions.cargarTasksError({ tasks: err })) )
+            ),
+
           )
       ),
-    )
-  );
+    );
+
+
+
 }

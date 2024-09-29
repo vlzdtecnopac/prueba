@@ -1,6 +1,6 @@
 import {TaskInterface} from "../../interface/associatedTask.interface";
 import {Action, createReducer, on} from "@ngrx/store";
-import {cargarTask, cargarTasksSuccess} from "../actions"
+import {cargarTask, cargarTasksSuccess, cargarTasksError} from "../actions"
 
 export interface TaskState {
   tasks: TaskInterface[],
@@ -21,6 +21,16 @@ const _taskReducer = createReducer(taskInitialState,
     ...state,
     loading: false,
     tasks: [ ...tasks ]
+  })),
+
+  on( cargarTasksError, (state, { tasks }) => ({
+    ...state,
+    loading: false,
+    error: {
+      url: tasks.url,
+      name: tasks.name,
+      message: tasks.message
+    }
   })),
 
 )

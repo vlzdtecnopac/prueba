@@ -18,7 +18,6 @@ import {appReducers} from "./store/app.reducers";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {FormCreateTaskComponent} from "./task/component/form-create-task/form-create-task.component";
 import {TaskTableComponent} from "./task/pages/task-table/task-table.component";
-import {NzIconModule} from "ng-zorro-antd/icon";
 import {EffectsModule} from "@ngrx/effects";
 import {EffectsArray} from "./store/effects";
 import {DetailTaskComponents} from "./task/component/detail-task/detail-task.component";
@@ -46,7 +45,6 @@ registerLocaleData(es);
       maxAge: 25, // Retains last 25 states
     }),
     FormCreateTaskComponent,
-    NzIconModule,
     DetailTaskComponents,
   ],
   providers: [

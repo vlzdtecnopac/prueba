@@ -39,7 +39,8 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzIconModule,
     NzModalModule,
     NzSelectModule,
-    NzSpinModule
+    NzSpinModule,
+    NzIconModule,
   ]
 })
 export class NgZorroAntdModule { }

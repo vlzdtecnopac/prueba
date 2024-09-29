@@ -144,6 +144,34 @@
       ],
       "state": "completed",
       "id": 7
+    },
+    {
+      "nameTask": "Tarea 8",
+      "dateTask": "2024-11-28T19:33:34.379Z",
+      "associatedTasks": [
+        {
+          "nameUser": "Eduardo Parada",
+          "nameAge": 28,
+          "skills": [
+            ".Net",
+            "Java",
+            "Go",
+            "Nest",
+            "Python"
+          ]
+        },
+        {
+          "nameUser": "Andrea Sandoval",
+          "nameAge": 22,
+          "skills": [
+            "Adobe Ilustreitor",
+            "Corel Draw",
+            "Adobe Premier"
+          ]
+        }
+      ],
+      "state": "completed",
+      "id": 8
     }
   ]
 }

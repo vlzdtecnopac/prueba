@@ -27,6 +27,7 @@ export class TaskTableComponent implements OnInit {
   listTasks: TaskInterface[] = [];
   selectedValue = null;
   isSpinning: boolean = true;
+  error: any;
 
   constructor(private router: Router,
               private store: Store<AppState>) {
@@ -56,11 +57,13 @@ export class TaskTableComponent implements OnInit {
       this.store.select('tasks').subscribe(({tasks, loading, error}) => {
         this.listTasks = tasks.filter(task => task.state === selectedValue);
         this.isSpinning = loading;
+        this.error = error;
       });
     } else {
       this.store.select('tasks').subscribe(({tasks, loading, error}) => {
         this.listTasks = tasks;
         this.isSpinning = loading;
+        this.error = error;
       });
     }
   }

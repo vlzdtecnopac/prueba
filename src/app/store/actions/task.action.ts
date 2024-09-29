@@ -9,3 +9,8 @@ export const cargarTasksSuccess = createAction(
   props<{ tasks: TaskInterface[] }>()
 );
 
+export const cargarTasksError = createAction(
+  '[Usuarios] Cargar Tasks Error',
+  props<{ tasks: any }>()
+);
+

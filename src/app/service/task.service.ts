@@ -9,8 +9,8 @@ import {TaskStateEnum} from "../enum/task-state.enum";
 })
 export class TaskService {
 
-  private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
-  //private apiUrl = 'http://localhost:3000/tasks';
+  //private apiUrl = 'https://my-json-server.typicode.com/vlzdtecnopac/prueba/tasks';
+  private apiUrl = 'http://localhost:3000/tasks';
 
   constructor(private http: HttpClient) {}
 
