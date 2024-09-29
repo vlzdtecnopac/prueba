@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {AppState} from "../../../store/app.reducers";
 import {TaskInterface} from "../../../interface/associatedTask.interface";
@@ -28,26 +28,33 @@ export class TaskTableComponent implements OnInit {
   selectedValue = null;
 
   constructor(private router: Router,
-              private store: Store<AppState>) {}
+              private store: Store<AppState>) {
+  }
 
   ngOnInit(): void {
     this.store.dispatch(cargarTask())
 
-    this.store.select('tasks').subscribe( ({ tasks, loading, error }) => {
+    this.store.select('tasks').subscribe(({tasks, loading, error}) => {
       this.listTasks = tasks;
     });
 
   }
 
-  getStateComplete(){
+  getStateComplete() {
     return TaskStateEnum.completed
   }
 
   filterTasks(selectedValue: string) {
-      this.store.dispatch(cargarTask())
-      this.store.select('tasks').subscribe( ({ tasks, loading, error }) => {
+    this.store.dispatch(cargarTask())
+    if (selectedValue) {
+      this.store.select('tasks').subscribe(({tasks, loading, error}) => {
         this.listTasks = tasks.filter(task => task.state === selectedValue);
       });
+    } else {
+      this.store.select('tasks').subscribe(({tasks, loading, error}) => {
+        this.listTasks = tasks;
+      });
+    }
   }
 
 
