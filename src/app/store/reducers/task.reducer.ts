@@ -25,6 +25,6 @@ const _taskReducer = createReducer(taskInitialState,
 
 )
 
-export function taskReducer(state: TaskState | undefined, action: Action<string>) {
+export function taskReducer(state: TaskState | undefined, action: Action) {
   return _taskReducer(state, action);
 }
