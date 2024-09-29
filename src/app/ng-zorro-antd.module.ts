@@ -16,6 +16,7 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { NzBadgeModule } from 'ng-zorro-antd/badge';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @NgModule({
   declarations: [],
@@ -35,7 +36,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzSwitchModule,
     NzBadgeModule,
     NzIconModule,
-    NzModalModule
+    NzModalModule,
+    NzSelectModule,
   ]
 })
 export class NgZorroAntdModule { }

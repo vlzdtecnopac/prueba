@@ -25,6 +25,7 @@ export interface TreeNodeInterface {
 export class TaskTableComponent implements OnInit {
 
   listTasks: TaskInterface[] = [];
+  selectedValue = null;
 
   constructor(private router: Router,
               private store: Store<AppState>) {}
@@ -40,6 +41,13 @@ export class TaskTableComponent implements OnInit {
 
   getStateComplete(){
     return TaskStateEnum.completed
+  }
+
+  filterTasks(selectedValue: string) {
+      this.store.dispatch(cargarTask())
+      this.store.select('tasks').subscribe( ({ tasks, loading, error }) => {
+        this.listTasks = tasks.filter(task => task.state === selectedValue);
+      });
   }
 
 

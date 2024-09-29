@@ -4,6 +4,9 @@ import {NgZorroAntdModule} from "../../../ng-zorro-antd.module";
 import {TaskService} from "../../../service/task.service";
 import {TaskInterface} from "../../../interface/associatedTask.interface";
 import {TaskStateEnum} from "../../../enum/task-state.enum";
+import {Store} from "@ngrx/store";
+import {AppState} from "../../../store/app.reducers";
+import {cargarTask} from "../../../store/actions";
 
 @Component({
   selector: 'app-detail-task',
@@ -21,7 +24,8 @@ export class DetailTaskComponents{
   isVisible = false;
   isConfirmLoading = false;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService,
+              private store: Store<AppState>) {}
 
   getStateComplete(){
     return TaskStateEnum.completed
@@ -42,6 +46,7 @@ export class DetailTaskComponents{
       .subscribe(result => {
       this.isVisible = false;
       this.isConfirmLoading = false;
+      this.store.dispatch(cargarTask())
     })
 
   }
