@@ -15,7 +15,36 @@
             "Java"
           ]
         }
-      ]
+      ],
+      "state": "pending"
+    },
+    {
+      "id": 2,
+      "nameTask": "Tarea 2",
+      "dateTask": "2024-10-25T03:28:44.497Z",
+      "associatedTasks": [
+        {
+          "nameUser": "Andrea Patricia Calderon",
+          "nameAge": 22,
+          "skills": [
+            "html",
+            "css",
+            "sass"
+          ]
+        },
+        {
+          "nameUser": "Edwin Garzon Valda",
+          "nameAge": 22,
+          "skills": [
+            "Go",
+            "Python",
+            "R",
+            "Nest",
+            "Next"
+          ]
+        }
+      ],
+      "state": "completed"
     }
   ]
 }
