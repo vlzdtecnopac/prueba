@@ -5,7 +5,7 @@
 <nz-modal [(nzVisible)]="isVisible" nzTitle="Detalle Tarea" (nzOnCancel)="handleCancel()">
   <div *nzModalContent>
     <div class="grid">
-      <div class="col-8"><h3 nz-typography>{{ taskDetail?.nameTask }}  </h3>
+      <div class="col-8"><h3 nz-typography>{{ taskDetail?.nameTask }} </h3>
         <nz-badge [nzStatus]="taskDetail?.state == getStateComplete() ? 'success' :  'error'">{{ taskDetail?.state }}
         </nz-badge>
       </div>
@@ -25,6 +25,10 @@
 
   </div>
   <div *nzModalFooter>
-    <button nz-button nzType="primary" (click)="handleOk(taskDetail?.id)" [nzLoading]="isConfirmLoading">Completar Tarea</button>
+    <div *ngIf="taskDetail?.state != getStateComplete()">
+      <button nz-button nzType="primary" (click)="handleOk(taskDetail?.id)" [nzLoading]="isConfirmLoading">Completar
+        Tarea
+      </button>
+    </div>
   </div>
 </nz-modal>
