@@ -31,6 +31,10 @@ export class DetailTaskComponents{
     return TaskStateEnum.completed
   }
 
+  getStatePending(){
+    return TaskStateEnum.pending
+  }
+
   showModal(): void {
     this.taskService.getOneTask(this.idTask)
       .subscribe(item => {

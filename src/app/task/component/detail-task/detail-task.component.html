@@ -25,7 +25,7 @@
 
   </div>
   <div *nzModalFooter>
-    <div *ngIf="taskDetail?.state != getStateComplete()">
+    <div *ngIf="taskDetail?.state == getStatePending()">
       <button nz-button nzType="primary" (click)="handleOk(taskDetail?.id)" [nzLoading]="isConfirmLoading">Completar
         Tarea
       </button>
